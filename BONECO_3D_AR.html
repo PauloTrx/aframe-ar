@@ -1,0 +1,57 @@
+<!-- incluir o A-Frame  -->
+<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<!-- incluir o ar.js para A-Frame  -->
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<!-- incluir sistema de particulas para o A-Frame -->
+<script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+
+<body style="margin : 0px; overflow: hidden;">
+  <a-scene embedded arjs>
+    <!-- crie seu conteúdo aqui.  -->
+    <!-- adicionar música de fundo -->
+    <a-entity sound="src: url(https://cdn.glitch.com/fbadc4c9-c280-439b-ba45-c75fd6160955%2FToque-natalino.mp3?1543766902709); volume:10; autoplay: true; loop: true"></a-entity> 
+    <!-- adicionar particulas de neve caindo -->
+    <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount:5000; size:2"></a-entity>
+    <!-- adicionar textura de neve no piso (plano) -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="7" height="5" shadow="true" material="src: url(https://cdn.glitch.com/fbadc4c9-c280-439b-ba45-c75fd6160955%2Fneve-sobre-a-textura-da-grama_8119-366.jpg?1543789255806)"></a-plane>
+    <!-- luz ambiente -->
+    <a-light type="ambient" color="#fff" intensity="0.8"></a-light>
+    <!-- textos -->
+    <a-text position="-1.0 2.4 0" rotation="0 0 0" value="O BONECO DE NEVE"></a-text>
+    <!-- chapeu do boneco de neve -->
+    <a-cone position="0 1.5 0" shadow="true" color="red" rotation="0 90 0"  radius-bottom="0.1.5" radius-top="0.3"></a-cone>
+    <!-- cabeça e corpo do boneco de neve -->
+    <a-sphere position="0 1.4 0" shadow="true" rotation="0 0 0" radius="0.4" material="src: url(https://cdn.glitch.com/fbadc4c9-c280-439b-ba45-c75fd6160955%2Fboneco_neve.jpg?1543771021288)" ></a-sphere>
+    <a-sphere position="0 0.5 0" shadow="true" radius="0.6" rotation="0 0 0" material="src: url(https://cdn.glitch.com/fbadc4c9-c280-439b-ba45-c75fd6160955%2Fboneco_neve.jpg?1543771021288)"></a-sphere>
+    <!-- olhos do boneco de neve -->
+    <a-sphere position="0.15 1.5 0.3" rotation="0 0 0" radius="0.07" color="black"></a-sphere>
+    <a-sphere position="-0.15 1.5 0.3" rotation="0 0 0" radius="0.07" color="black"></a-sphere>
+    <!-- nariz do boneco de neve -->
+    <a-cone position="0 1.3 0.24" material="src: url(https://cdn.glitch.com/3561d268-cf30-4d13-85fb-805431fe1ba5%2Fcenoura.jpg?1543790317643)" rotation="90 0 0"  radius-bottom="0.2" radius-top="0.02"></a-cone>
+    <!-- braços do boneco de neve com animação (levantar e abaixar) -->
+    <a-cone position="-0.5 0.8 0" shadow="true" material="src: url(https://cdn.glitch.com/fbadc4c9-c280-439b-ba45-c75fd6160955%2Fmadeira.jpg?1543788857706)" rotation="0 0 90"  radius-bottom="0.09" radius-top="0.05">
+    <a-animation attribute="rotation" dur="3000" from="0 0 90" to="0 0 30" repeat="indefinite"></a-animation></a-cone>
+    <a-cone position="0.5 0.8 0" shadow="true" material="src: url(https://cdn.glitch.com/fbadc4c9-c280-439b-ba45-c75fd6160955%2Fmadeira.jpg?1543788857706\)"  rotation="0 0 90"  radius-bottom="0.09" radius-top="0.05">
+    <a-animation attribute="rotation" dur="3000" from="0 0 -90" to="0 0 -30" repeat="indefinite"></a-animation></a-cone>
+    <!-- botoes do corpo do boneco de neve -->
+    <a-sphere position="0 0.9 0.4" radius="0.05" color="black"></a-sphere>
+    <a-sphere position="0 0.72 0.515" radius="0.05" color="black"></a-sphere>
+    <a-sphere position="0 0.5 0.565" radius="0.05" color="black"></a-sphere>
+    <!-- pes do boneco de neve -->   
+    <a-sphere position="0.2 0 0.4" radius="0.1" shadow="true" color="black"></a-sphere>
+    <a-sphere position="-0.2 0 0.4" radius="0.1" shadow="true" color="black"></a-sphere> 
+    <!-- poste -->
+    <a-box position="1.13 1.5 0" shadow="true" rotation="90 0 0" color="black" width="0.2" depth="3" height="0.2"></a-box>
+    <a-box position="0.93 2.94 0"  color="black" width="0.6" depth="0.2" height="0.2"></a-box>
+    <a-box position="0.93 2.82 0"  color="yellow" width="0.41" depth="0.08" height="0.08"></a-box>
+    <a-entity light="type: spot;
+                     color: yellow;
+                     castShadow: true;
+                     intensity: 0.6;
+                     angle: 35"
+                     position="0.7 2.91 0"
+                     rotation="-90 0 0"></a-entity>
+    <!-- define uma câmera que se mova de acordo com a posição do mar -->
+    <a-marker-camera preset="hiro"></a-marker-camera>
+  </a-scene>
+</body>
